@@ -15,7 +15,8 @@ import {
 } from "lucide-react";
 
 import heroBg from "@/assets/hero-bg.jpg";
-import portrait from "@/assets/portrait.jpg";
+import cvAsset from "@/assets/cv.pdf.asset.json";
+import portraitAsset from "@/assets/portrait.png.asset.json";
 import { Reveal } from "@/components/Reveal";
 import { SiteNav } from "@/components/SiteNav";
 
@@ -26,26 +27,32 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Portfolio of Hlengiwe Mthembu, an aspiring cybersecurity and AI professional: projects, skills, certifications and experience.",
+          "Portfolio of Hlengiwe Mthembu — learning, building and growing in tech: cybersecurity labs, Python projects, certifications and experience.",
       },
       { property: "og:title", content: "Hlengiwe Mthembu — Cybersecurity & AI Portfolio" },
       {
         property: "og:description",
-        content:
-          "Security-minded builder working across threat detection, secure development and applied AI.",
+        content: "Learning, building and growing in tech — cybersecurity, networking and AI.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Portfolio,
 });
 
+const GITHUB_URL = "https://github.com/Leni-tech00";
+const LINKEDIN_URL = "https://www.linkedin.com/in/hlengiwe-mthembu-646003213/";
+const EMAIL = "hlengi703@gmail.com";
+const CV_URL = cvAsset.url;
+
 const technicalSkills = [
-  { name: "Network & Systems Security", level: 85 },
-  { name: "Threat Detection & SIEM", level: 78 },
-  { name: "Python & Automation", level: 88 },
-  { name: "Machine Learning / AI", level: 80 },
-  { name: "Linux & Cloud Fundamentals", level: 75 },
-  { name: "Secure Web Development", level: 72 },
+  { name: "Python", level: 70 },
+  { name: "VS Code", level: 75 },
+  { name: "Nmap", level: 55 },
+  { name: "Linux", level: 60 },
+  { name: "Cisco Packet Tracer", level: 60 },
+  { name: "AI Tools & Fundamentals", level: 65 },
 ];
 
 const softSkills = [
@@ -59,68 +66,91 @@ const softSkills = [
 
 const projects = [
   {
-    title: "AI Phishing Detector",
-    tag: "Machine Learning · Security",
-    body: "A classifier that scores inbound email for phishing intent using NLP features and URL reputation signals, served through a lightweight API.",
-    stack: ["Python", "scikit-learn", "FastAPI"],
+    title: "Python Contact Management System",
+    tag: "Python · Programming",
+    body: "A small Python application created to store and retrieve contact information using dictionaries, conditional statements and user input.",
+    stack: ["Python"],
+    skills: "Dictionaries, conditionals, data handling and problem-solving.",
+    link: GITHUB_URL,
+    linkLabel: "View on GitHub",
   },
   {
-    title: "Home SOC Lab",
-    tag: "Blue Team",
-    body: "A virtualised detection lab with log shipping, alert rules and dashboards to practise incident triage against simulated attacks.",
-    stack: ["Wazuh", "Elastic", "Linux"],
+    title: "Cybersecurity & Network Security Labs",
+    tag: "Cybersecurity · Networking",
+    body: "Practical learning exercises completed while developing cybersecurity skills, covering network fundamentals, security threats, phishing, password security and basic network reconnaissance.",
+    stack: ["TryHackMe", "Nmap", "Networking & security tools"],
+    skills: "Cybersecurity awareness, network analysis and threat identification.",
+    link: GITHUB_URL,
+    linkLabel: "View on GitHub",
   },
   {
-    title: "Vulnerability Report Toolkit",
-    tag: "Automation",
-    body: "Scanner output is normalised, deduplicated and turned into prioritised, readable remediation reports for non-technical stakeholders.",
-    stack: ["Python", "Nmap", "Pandas"],
-  },
-  {
-    title: "Secure Notes App",
-    tag: "AppSec",
-    body: "End-to-end encrypted note taking built to practise secure auth flows, key handling and defensive input validation.",
-    stack: ["React", "Node", "Crypto"],
+    title: "Networking Fundamentals with Packet Tracer",
+    tag: "Networking · Labs",
+    body: "Simulated network builds and configuration practice using Cisco Packet Tracer alongside the Cisco Networking Academy coursework, focused on topology design, addressing and connectivity testing.",
+    stack: ["Cisco Packet Tracer", "Linux"],
+    skills: "Network topology design, IP addressing and troubleshooting.",
+    link: GITHUB_URL,
+    linkLabel: "View on GitHub",
   },
 ];
 
 const education = [
   {
-    school: "Bachelor of Science — Information Technology",
-    detail: "Focus on network security, databases and software engineering.",
-    period: "2022 — 2025",
+    school: "Damelin",
+    detail: "Fashion Design & Retail Buying Certificate",
+    period: "Certificate",
   },
   {
-    school: "Applied AI & Data Science Coursework",
-    detail: "Machine learning, model evaluation and responsible AI practice.",
-    period: "2024",
+    school: "OMNI",
+    detail: "Wholesale & Retail Readiness Certificate",
+    period: "Certificate",
+  },
+  {
+    school: "Norkem Park High School",
+    detail: "National Senior Certificate (Matric)",
+    period: "Matric",
   },
 ];
 
 const certifications = [
-  { name: "CompTIA Security+", issuer: "CompTIA", year: "In progress" },
-  { name: "Google Cybersecurity Certificate", issuer: "Google", year: "2025" },
-  { name: "Cisco Introduction to Cybersecurity", issuer: "Cisco", year: "2024" },
-  { name: "Machine Learning Specialisation", issuer: "DeepLearning.AI", year: "2024" },
+  {
+    name: "Women Techsters Cybersecurity Bootcamp",
+    issuer: "Tech4Dev",
+    year: "Certificate",
+  },
+  {
+    name: "Introduction to Cybersecurity — Certificate · Networking Basics — In progress",
+    issuer: "Cisco Networking Academy",
+    year: "Certificate / In progress",
+  },
+  {
+    name: "AI Skills Acceleration Programme",
+    issuer: "CAPACITI",
+    year: "In progress",
+  },
+  {
+    name: "App development / coding learning",
+    issuer: "FNB App Academy",
+    year: "In progress",
+  },
+  {
+    name: "KnowBe4 Security Awareness Training",
+    issuer: "Omnicontact International — regular in-role training",
+    year: "Ongoing",
+  },
 ];
 
 const experience = [
   {
-    role: "Cybersecurity Intern",
-    org: "Technology Services Team",
-    period: "2025",
+    role: "Claims Call Centre Agent",
+    org: "Omnicontact International",
+    period: "July 2025 — August 2026",
     points: [
-      "Monitored security alerts and escalated suspicious activity with written triage notes.",
-      "Assisted with vulnerability scans and tracked remediation to closure.",
-    ],
-  },
-  {
-    role: "IT Support Assistant",
-    org: "Campus IT",
-    period: "2023 — 2024",
-    points: [
-      "Resolved endpoint, access and network issues for staff and students.",
-      "Documented recurring faults and proposed preventative fixes.",
+      "Handled international claims intake across auto vehicle accidents, employee injuries and liability/customer incident claims.",
+      "Probed callers for accurate and complete incident information, captured claim details and maintained clear documentation.",
+      "Used Citrix, NetClaim, Gallagher AI and Genesys to navigate workflows, record information and support claim filing.",
+      "Communicated professionally and empathetically with callers during sensitive, urgent and complex incidents.",
+      "Applied attention to detail, confidentiality, critical thinking and process compliance while working in a fast-paced contact-centre environment.",
     ],
   },
 ];
@@ -180,15 +210,16 @@ function Portfolio() {
                 Hlengiwe <span className="text-gradient">Mthembu</span>
               </h1>
               <p className="mt-4 font-display text-lg text-muted-foreground sm:text-2xl">
-                Cybersecurity &amp; Artificial Intelligence
+                Learning, building and growing in tech
               </p>
               <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-                I build and defend systems — combining security fundamentals with applied machine
-                learning to detect threats earlier and make risk understandable to everyone.
+                Growing my skills across cybersecurity, networking and AI through structured
+                programmes and hands-on labs — while bringing real experience in accuracy,
+                documentation and working with people under pressure.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <a
-                  href="/cv.pdf"
+                  href={CV_URL}
                   download
                   className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
                   style={{ backgroundImage: "var(--gradient-brand)", boxShadow: "var(--glow-primary)" }}
@@ -202,9 +233,9 @@ function Portfolio() {
                   View Projects <ArrowUpRight className="size-4" />
                 </a>
               </div>
-              <div className="mt-8 flex items-center gap-3">
+              <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a
-                  href="https://github.com/"
+                  href={GITHUB_URL}
                   target="_blank"
                   rel="noreferrer"
                   aria-label="GitHub"
@@ -213,7 +244,7 @@ function Portfolio() {
                   <Github className="size-5" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/"
+                  href={LINKEDIN_URL}
                   target="_blank"
                   rel="noreferrer"
                   aria-label="LinkedIn"
@@ -222,7 +253,7 @@ function Portfolio() {
                   <Linkedin className="size-5" />
                 </a>
                 <span className="ml-1 inline-flex items-center gap-1.5 text-xs text-muted-foreground">
-                  <MapPin className="size-3.5" /> South Africa
+                  <MapPin className="size-3.5" /> Tembisa, Gauteng
                 </span>
               </div>
             </div>
@@ -234,18 +265,44 @@ function Portfolio() {
                 style={{ backgroundImage: "var(--gradient-brand)", opacity: 0.25 }}
               />
               <div className="glass relative overflow-hidden rounded-[2rem] p-3">
-                <img
-                  src={portrait}
-                  alt="Portrait illustration of Hlengiwe Mthembu"
-                  width={800}
-                  height={1000}
-                  className="w-full rounded-[1.5rem] object-cover"
-                />
+                <div className="relative overflow-hidden rounded-[1.5rem]">
+                  <img
+                    src={portraitAsset.url}
+                    alt="Portrait of Hlengiwe Mthembu"
+                    width={1254}
+                    height={1254}
+                    className="w-full object-cover"
+                  />
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 mix-blend-overlay"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(oklch(0.78 0.15 195 / 22%), oklch(0.66 0.17 292 / 22%))",
+                    }}
+                  />
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 opacity-40"
+                    style={{
+                      backgroundImage:
+                        "repeating-linear-gradient(0deg, oklch(0 0 0 / 35%) 0px, oklch(0 0 0 / 35%) 1px, transparent 1px, transparent 3px), repeating-linear-gradient(90deg, oklch(0 0 0 / 22%) 0px, oklch(0 0 0 / 22%) 1px, transparent 1px, transparent 3px)",
+                    }}
+                  />
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-x-0 h-24 animate-float opacity-50"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(oklch(0.78 0.15 195 / 0%), oklch(0.78 0.15 195 / 35%), oklch(0.78 0.15 195 / 0%))",
+                    }}
+                  />
+                </div>
                 <div className="grid grid-cols-3 gap-2 p-3 text-center">
                   {[
-                    { k: "10+", v: "Projects" },
-                    { k: "4", v: "Certificates" },
-                    { k: "2", v: "Internships" },
+                    { k: "3", v: "Projects" },
+                    { k: "5", v: "Certifications" },
+                    { k: "AI", v: "In progress" },
                   ].map((s) => (
                     <div key={s.v}>
                       <p className="font-display text-lg font-bold text-primary">{s.k}</p>
@@ -263,24 +320,24 @@ function Portfolio() {
           <SectionHeading
             eyebrow="About Me"
             title="Security thinking, engineering habits"
-            blurb="An aspiring cybersecurity and AI professional who enjoys the space where defensive security meets intelligent automation."
+            blurb="A technology-focused professional building practical capability in cybersecurity, networking and AI, backed by international claims call-centre experience."
           />
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {[
               {
                 icon: ShieldCheck,
-                title: "Defensive Security",
-                body: "Monitoring, triage and hardening — with a habit of documenting everything I find.",
+                title: "Cybersecurity Fundamentals",
+                body: "Threats, phishing, password security and safe practice — learned through bootcamps and hands-on labs.",
               },
               {
                 icon: BrainCircuit,
                 title: "Applied AI",
-                body: "Practical models for detection and classification, judged on real evaluation metrics.",
+                body: "Currently on an AI skills acceleration programme, learning how AI tools fit into real workflows.",
               },
               {
                 icon: Terminal,
-                title: "Automation",
-                body: "Scripting repetitive analysis away so attention goes to the interesting anomalies.",
+                title: "Coding & Networking",
+                body: "Python basics, Linux, Nmap and Cisco Packet Tracer practice, one project at a time.",
               },
             ].map((c, i) => (
               <Reveal key={c.title} delay={i * 90}>
@@ -294,7 +351,7 @@ function Portfolio() {
           </div>
         </section>
 
-        {/* SKILLS */}
+        {/* TECHNICAL SKILLS */}
         <section id="skills" className="mx-auto max-w-6xl px-5 py-24">
           <SectionHeading eyebrow="Technical Skills" title="Tools and disciplines I work in" />
           <div className="mt-12 grid gap-4 md:grid-cols-2">
@@ -315,19 +372,20 @@ function Portfolio() {
               </Reveal>
             ))}
           </div>
+        </section>
 
-          <div className="mt-20">
-            <SectionHeading eyebrow="Soft Skills" title="How I work with people" />
-            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {softSkills.map((s, i) => (
-                <Reveal key={s.title} delay={i * 60}>
-                  <div className="glass h-full rounded-2xl p-6">
-                    <h3 className="font-display text-base font-semibold text-primary">{s.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
+        {/* SOFT SKILLS */}
+        <section id="soft-skills" className="mx-auto max-w-6xl px-5 py-24">
+          <SectionHeading eyebrow="Soft Skills" title="How I work with people" />
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {softSkills.map((s, i) => (
+              <Reveal key={s.title} delay={i * 60}>
+                <div className="glass h-full rounded-2xl p-6">
+                  <h3 className="font-display text-base font-semibold text-primary">{s.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </section>
 
@@ -342,12 +400,12 @@ function Portfolio() {
             <SectionHeading
               eyebrow="Projects"
               title="Selected work"
-              blurb="Hands-on builds where I practise detection, secure engineering and applied machine learning."
+              blurb="Hands-on builds and labs where I practise coding, networking and security fundamentals."
             />
-            <div className="mt-14 grid gap-6 lg:grid-cols-2">
+            <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {projects.map((p, i) => (
                 <Reveal key={p.title} delay={i * 100}>
-                  <article className="glass group relative h-full overflow-hidden rounded-3xl p-8 hover:-translate-y-1.5">
+                  <article className="glass group relative flex h-full flex-col overflow-hidden rounded-3xl p-7 hover:-translate-y-1.5 sm:p-8">
                     <div
                       aria-hidden
                       className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-40"
@@ -356,7 +414,7 @@ function Portfolio() {
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
                       {p.tag}
                     </p>
-                    <h3 className="mt-4 text-2xl font-bold">{p.title}</h3>
+                    <h3 className="mt-4 text-xl font-bold sm:text-2xl">{p.title}</h3>
                     <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
                     <div className="mt-6 flex flex-wrap gap-2">
                       {p.stack.map((t) => (
@@ -368,13 +426,17 @@ function Portfolio() {
                         </span>
                       ))}
                     </div>
+                    <p className="mt-5 text-xs leading-relaxed text-muted-foreground">
+                      <span className="font-semibold text-foreground">Skills demonstrated: </span>
+                      {p.skills}
+                    </p>
                     <a
-                      href="https://github.com/"
+                      href={p.link}
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-primary"
+                      className="mt-auto inline-flex items-center gap-2 pt-7 text-sm font-semibold text-primary"
                     >
-                      View on GitHub
+                      {p.linkLabel}
                       <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </a>
                   </article>
@@ -387,7 +449,7 @@ function Portfolio() {
         {/* EDUCATION */}
         <section id="education" className="mx-auto max-w-6xl px-5 py-24">
           <SectionHeading eyebrow="Education" title="Academic background" />
-          <div className="mt-12 grid gap-5 md:grid-cols-2">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {education.map((e, i) => (
               <Reveal key={e.school} delay={i * 90}>
                 <div className="glass h-full rounded-3xl p-7">
@@ -404,7 +466,7 @@ function Portfolio() {
         {/* CERTIFICATIONS */}
         <section id="certifications" className="mx-auto max-w-6xl px-5 py-24">
           <SectionHeading eyebrow="Certifications" title="Credentials &amp; training" />
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {certifications.map((c, i) => (
               <Reveal key={c.name} delay={i * 80}>
                 <div className="glass h-full rounded-2xl p-6">
@@ -420,7 +482,7 @@ function Portfolio() {
 
         {/* EXPERIENCE */}
         <section id="experience" className="mx-auto max-w-6xl px-5 py-24">
-          <SectionHeading eyebrow="Work Experience" title="Where I've applied it" />
+          <SectionHeading eyebrow="Work Experience" title="Professional experience" />
           <div className="relative mt-12 border-l border-border pl-6 sm:pl-10">
             {experience.map((x, i) => (
               <Reveal key={x.role} delay={i * 100}>
@@ -430,7 +492,7 @@ function Portfolio() {
                     style={{ boxShadow: "var(--glow-primary)" }}
                   />
                   <div className="glass rounded-3xl p-7">
-                    <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4">
+                    <div className="grid grid-cols-1 items-start gap-2 sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-4">
                       <div className="min-w-0">
                         <h3 className="text-lg font-semibold">{x.role}</h3>
                         <p className="mt-1 text-sm text-muted-foreground">{x.org}</p>
@@ -466,18 +528,18 @@ function Portfolio() {
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Contact</p>
               <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Let's work together</h2>
               <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-muted-foreground">
-                Open to internships, graduate programmes and junior roles in cybersecurity and AI.
+                Open to internships, graduate programmes and junior roles in cybersecurity, IT and AI.
               </p>
               <div className="mt-9 flex flex-wrap justify-center gap-3">
                 <a
-                  href="mailto:hello@example.com"
+                  href={`mailto:${EMAIL}`}
                   className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
                   style={{ backgroundImage: "var(--gradient-brand)" }}
                 >
                   <Mail className="size-4" /> Email me
                 </a>
                 <a
-                  href="https://www.linkedin.com/"
+                  href={LINKEDIN_URL}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:border-primary/50"
@@ -485,12 +547,19 @@ function Portfolio() {
                   <Linkedin className="size-4" /> LinkedIn
                 </a>
                 <a
-                  href="https://github.com/"
+                  href={GITHUB_URL}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:border-primary/50"
                 >
                   <Github className="size-4" /> GitHub
+                </a>
+                <a
+                  href={CV_URL}
+                  download
+                  className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:border-primary/50"
+                >
+                  <Download className="size-4" /> Download CV
                 </a>
               </div>
             </div>
