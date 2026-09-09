@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
+import cvAsset from "@/assets/cv.pdf.asset.json";
+
 const links = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
-  { id: "skills", label: "Skills" },
+  { id: "skills", label: "Technical Skills" },
+  { id: "soft-skills", label: "Soft Skills" },
   { id: "projects", label: "Projects" },
   { id: "education", label: "Education" },
   { id: "certifications", label: "Certifications" },
@@ -47,15 +50,15 @@ export function SiteNav() {
         scrolled ? "backdrop-blur-xl bg-background/70 border-b border-border" : ""
       }`}
     >
-      <nav className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4 lg:flex lg:justify-between">
+      <nav className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4 xl:flex xl:justify-between">
         <a href="#home" className="min-w-0 font-display text-lg font-bold tracking-tight">
           <span className="text-gradient">HM</span>
-          <span className="ml-2 text-sm font-medium text-muted-foreground">
+          <span className="ml-2 hidden text-sm font-medium text-muted-foreground sm:inline">
             Cybersecurity &amp; AI
           </span>
         </a>
 
-        <ul className="hidden items-center gap-1 lg:flex">
+        <ul className="hidden items-center gap-1 xl:flex">
           {links.map((l) => (
             <li key={l.id}>
               <a
@@ -74,7 +77,7 @@ export function SiteNav() {
 
         <div className="flex items-center gap-2">
           <a
-            href="/cv.pdf"
+            href={cvAsset.url}
             download
             className="hidden rounded-full border border-primary/40 px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/10 sm:inline-flex"
           >
@@ -82,8 +85,9 @@ export function SiteNav() {
           </a>
           <button
             aria-label="Toggle menu"
+            aria-expanded={open}
             onClick={() => setOpen((o) => !o)}
-            className="grid size-10 shrink-0 place-items-center rounded-full border border-border lg:hidden"
+            className="grid size-10 shrink-0 place-items-center rounded-full border border-border xl:hidden"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
@@ -91,7 +95,7 @@ export function SiteNav() {
       </nav>
 
       {open && (
-        <div className="border-t border-border bg-background/95 px-5 py-4 backdrop-blur-xl lg:hidden">
+        <div className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-border bg-background/95 px-5 py-4 backdrop-blur-xl xl:hidden">
           <ul className="grid gap-1">
             {links.map((l) => (
               <li key={l.id}>
@@ -106,8 +110,9 @@ export function SiteNav() {
             ))}
             <li>
               <a
-                href="/cv.pdf"
+                href={cvAsset.url}
                 download
+                onClick={() => setOpen(false)}
                 className="mt-2 block rounded-xl bg-primary px-3 py-2.5 text-center text-sm font-semibold text-primary-foreground"
               >
                 Download CV
