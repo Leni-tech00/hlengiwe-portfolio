@@ -167,14 +167,14 @@
 @utility glass {
   background-image: var(--gradient-surface);
   background-color: color-mix(in oklab, var(--card) 72%, transparent);
-  border: 1px solid oklch(1 0 0 / 10%);
+  border: 1px solid var(--border);
   backdrop-filter: blur(16px);
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.35s ease,
     box-shadow 0.35s ease;
   &:hover {
-    border-color: oklch(0.78 0.15 195 / 35%);
+    border-color: color-mix(in oklab, var(--primary) 35%, transparent);
     box-shadow: var(--glow-primary);
   }
 }
