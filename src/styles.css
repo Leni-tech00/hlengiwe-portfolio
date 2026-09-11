@@ -166,7 +166,7 @@
 
 @utility glass {
   background-image: var(--gradient-surface);
-  background-color: oklch(0.21 0.035 265 / 55%);
+  background-color: color-mix(in oklab, var(--card) 72%, transparent);
   border: 1px solid oklch(1 0 0 / 10%);
   backdrop-filter: blur(16px);
   transition:
